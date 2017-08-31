@@ -11,10 +11,14 @@ export class AdivinaNumeroComponent {
   userNumber: any;
   hideMessage: boolean;
   lose: boolean;
+  title:string;
+  subtitle:string;
   constructor() {
     this.generate(1, 11);
     this.hideMessage = true;
     this.lose = true;
+    this.title = "Adivina el número";
+    this.subtitle = "Se ha generado un número aleatorio entre 1 y 10.";
   }
 
   generate(min, max) {
