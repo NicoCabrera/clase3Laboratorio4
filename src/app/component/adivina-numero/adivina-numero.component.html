@@ -1,0 +1,8 @@
+<div>
+  <p>Ingresa un número del 1 al 10</p>
+  <input type="number" placeholder="Ingrese número" [(ngModel)]='userNumber'>
+  <button (click)="verify()">Verificar</button>
+  <div>
+    <button (click)="generate(0,11)">Generar un nuevo número</button>
+  </div>
+</div>
