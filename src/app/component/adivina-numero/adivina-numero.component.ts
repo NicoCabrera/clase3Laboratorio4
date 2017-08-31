@@ -7,25 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./adivina-numero.component.css']
 })
 export class AdivinaNumeroComponent {
-  randomValue:any;
-  userNumber:any;
-
+  randomValue: any;
+  userNumber: any;
+  hideMessage: boolean;
+  lose: boolean;
   constructor() {
-    this.generate(1,11);
+    this.generate(1, 11);
+    this.hideMessage = true;
+    this.lose = true;
   }
 
-  generate(min,max){
-    let randomNumber =  Math.random() * (max - min) + min;
+  generate(min, max) {
+    let randomNumber = Math.random() * (max - min) + min;
     this.randomValue = Math.floor(randomNumber);
+    this.hideMessage = true;
   }
-  
-  verify(){
-    if(this.userNumber === this.randomValue){
-      alert("ganaste!");
-    }else{
-      alert("perdiste!");
+
+  verify() {
+    if (this.userNumber == this.randomValue) {
+      this.lose = false;
+    } else {
+      this.lose = true;
     }
-    this.userNumber = "";
+    this.hideMessage = false;
   }
 
 }

@@ -1,8 +1,17 @@
-<div>
-  <p>Ingresa un número del 1 al 10</p>
-  <input type="number" placeholder="Ingrese número" [(ngModel)]='userNumber'>
-  <button (click)="verify()">Verificar</button>
-  <div>
-    <button (click)="generate(0,11)">Generar un nuevo número</button>
+<div class="container">
+  <div class="input-group">
+    <span class="input-group-btn">
+      <button class="btn btn-secondary" type="button" (click)="generate(0,11)">Generar un nuevo número</button>
+    </span>
+    <input class="form-control" placeholder="Ingresa un número del 1 al 10" [(ngModel)]='userNumber'>
+  </div>
+  <button (click)="verify()" class="btn btn-primary btn-lg btn-block">Verificar</button>
+  <div [hidden]="hideMessage">
+    <div [hidden]="lose" class="alert alert-success" role="alert">
+      Ganaste!
+    </div>
+    <div [hidden]="!lose" class="alert alert-danger" role="alert">
+      Perdiste
+    </div>
   </div>
 </div>
